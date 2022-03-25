@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/title2"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size"
+        android:layout_margin="@dimen/margin2">
+    </TextView>
+
+    <TextView
+        android:id="@+id/title_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="@dimen/margin2"
+        android:layout_marginLeft="@dimen/margin5"
+        android:text="@string/zaglushka"
+        android:textSize="@dimen/text_size">
+    </TextView>
+
+    <EditText
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/title_currency"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="@dimen/margin1"
+        android:layout_marginLeft="@dimen/margin2"
+        android:hint="1">
+    </EditText>
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/size"
+        android:src="@drawable/ic_arrow_1"
+        app:layout_constraintStart_toEndOf="@id/quantity"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="@dimen/margin_arrow"
+        android:layout_marginLeft="@dimen/margin4">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/title_two_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/arrow"
+        app:layout_constraintTop_toBottomOf="@id/title"
+       android:layout_marginTop="@dimen/margin2"
+        android:text="@string/zaglushka"
+        android:textSize="@dimen/text_size"
+        android:layout_marginLeft="@dimen/margin4">
+    </TextView>
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/title_two_currency"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_margin="@dimen/margin2"
+        android:text="курс"
+        android:textSize="@dimen/text_size">
+    </TextView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/exchange">
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
