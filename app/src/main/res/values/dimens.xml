@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="width_for_buttons">130dp</dimen>
+    <dimen name="width_for_buttons">137dp</dimen>
     <dimen name="margin1">10dp</dimen>
     <dimen name="margin_left">5dp</dimen>
     <dimen name="padding">5dp</dimen>
@@ -14,4 +14,5 @@
     <dimen name="margin5">32dp</dimen>
     <dimen name="size_toolbar">60dp</dimen>
     <dimen name="margin_toolbar">18dp</dimen>
+    <dimen name="button_exchange">10dp</dimen>
 </resources>

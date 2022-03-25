@@ -46,8 +46,7 @@
         android:layout_width="@dimen/width_for_buttons"
         android:layout_height="wrap_content"
         android:text="@string/currencies"
-        android:layout_marginTop="@dimen/margin1"
-        android:layout_marginLeft="@dimen/margin_left"
+        android:background="@color/purple_200"
         app:layout_constraintStart_toStartOf="@id/toolbar"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
     </Button>
@@ -57,7 +56,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/change"
         app:layout_constraintTop_toTopOf="@id/change"
-        android:layout_marginLeft="@dimen/margin_left"
+        android:background="@color/purple_200"
         android:text="@string/history">
     </Button>
     <Button
@@ -66,7 +65,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/history"
         app:layout_constraintTop_toTopOf="@id/history"
-        android:layout_marginLeft="@dimen/margin_left"
+        android:background="@color/purple_200"
         android:text="@string/analitics">
     </Button>
     <FrameLayout
