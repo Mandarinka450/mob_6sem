@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_for_buttons">137dp</dimen>
+    <dimen name="margin1">10dp</dimen>
+    <dimen name="margin_left">5dp</dimen>
+    <dimen name="padding">5dp</dimen>
+    <dimen name="margin2">20dp</dimen>
+    <dimen name="text_size">18sp</dimen>
+    <dimen name="margin_top">30dp</dimen>
+    <dimen name="margin3">130dp</dimen>
+    <dimen name="size">38dp</dimen>
+    <dimen name="margin_arrow">12dp</dimen>
+    <dimen name="margin4">40dp</dimen>
+    <dimen name="margin5">32dp</dimen>
+    <dimen name="size_toolbar">60dp</dimen>
+    <dimen name="margin_toolbar">18dp</dimen>
+    <dimen name="button_exchange">10dp</dimen>
+</resources>

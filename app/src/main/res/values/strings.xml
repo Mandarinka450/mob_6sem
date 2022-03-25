@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="currencies">Обмен</string>
+    <string name="history">История</string>
+    <string name="analitics">Аналитика</string>
+    <string name="zaglushka">Валюта</string>
+    <string name="chart">График тенденции роста</string>
+    <string name="choose_date">Выбрать период</string>
+    <string name="week">Неделя</string>
+    <string name="two_week">2 недели</string>
+    <string name="mounth">Месяц</string>
+    <string name="title1">История операций</string>
+    <string name="value">Кол-во</string>
+    <string name="date">Дата</string>
+    <string name="exchange">Обменять</string>
+    <string name="title2">Обмен Валют</string>
+    <string name="first_date">Дата начала и конца</string>
+    <string name="button_title">Применить</string>
+    <string name="all">Выбрать все</string>
+
+</resources>
