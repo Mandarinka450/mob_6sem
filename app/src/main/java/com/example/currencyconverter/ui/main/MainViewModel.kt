@@ -1,13 +1,7 @@
 package com.example.currencyconverter.ui.main
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.currencyconverter.data.CurrencyRepository
-import com.example.currencyconverter.data.CurrencyResponse
-import kotlinx.coroutines.launch
-import retrofit2.Response
-import java.util.*
+import com.example.currencyconverter.data.repository.CurrencyRepository
 
 
 class MainViewModel(private val currencyRepository: CurrencyRepository) : ViewModel() {
