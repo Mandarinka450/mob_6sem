@@ -1,4 +1,4 @@
-package com.example.currencyconverter.data.model
+package com.example.currencyconverter.model
 
 class Currencies(
     val timestamp: Long,

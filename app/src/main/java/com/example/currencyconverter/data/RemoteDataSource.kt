@@ -1,7 +1,6 @@
 package com.example.currencyconverter.data
 
 import android.util.Log
-import com.example.currencyconverter.data.api.CurrencyApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.coroutineScope
@@ -13,8 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.coroutines.CoroutineContext
 
 class RemoteDataSource(private val currencyApi : CurrencyApi) {
-       suspend fun getRemoteData(): CurrencyResponse{
-           val currency = currencyApi.getCurrencies()
-           return currency
-       }
+    suspend fun getRemoteData(): CurrencyResponse{
+        val currency = currencyApi.getCurrencies()
+        return currency
+    }
 }

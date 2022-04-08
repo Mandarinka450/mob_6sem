@@ -1,7 +1,5 @@
 package com.example.currencyconverter.data
 
-import com.example.currencyconverter.data.api.CurrencyApi
-import com.example.currencyconverter.data.repository.CurrencyRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.currencyconverter.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_currenciesFragment"
+            app:destination="@id/currenciesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_analyticsFragment"
+            app:destination="@id/analyticsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_filterFragment"
+            app:destination="@id/filterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/currenciesFragment"
+        android:name="com.example.currencyconverter.ui.main.CurrenciesFragment"
+        android:label="CurrenciesFragment" >
+        <action
+            android:id="@+id/action_currenciesFragment_to_exchangeCurrency"
+            app:destination="@id/exchangeCurrency" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.currencyconverter.ui.main.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="com.example.currencyconverter.ui.main.AnalyticsFragment"
+        android:label="AnalyticsFragment" />
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.example.currencyconverter.ui.main.FilterFragment"
+        android:label="FilterFragment" />
+    <fragment
+        android:id="@+id/exchangeCurrency"
+        android:name="com.example.currencyconverter.ui.main.ExchangeCurrency"
+        android:label="ExchangeCurrency" >
+        <action
+            android:id="@+id/action_exchangeCurrency_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+
+</navigation>

@@ -1,6 +1,5 @@
-package com.example.currencyconverter.data.api
+package com.example.currencyconverter.data
 
-import com.example.currencyconverter.data.CurrencyResponse
 import retrofit2.http.GET
 
 interface CurrencyApi {

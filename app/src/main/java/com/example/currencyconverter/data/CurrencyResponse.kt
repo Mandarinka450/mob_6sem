@@ -1,7 +1,7 @@
 package com.example.currencyconverter.data
 
 data class CurrencyResponse(
-    val success: String,
+    val success: Boolean,
     val timestamp: Long,
     val base: String,
     val date: String,
