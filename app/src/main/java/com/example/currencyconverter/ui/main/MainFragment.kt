@@ -9,42 +9,32 @@ import com.example.currencyconverter.R
 import com.example.currencyconverter.databinding.MainFragmentBinding
 
 
-class MainFragment : Fragment() {
-
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
-    private lateinit var viewModel: MainViewModel
+class MainFragment(private var viewModel: MainViewModel) : Fragment() {
     lateinit var binding: MainFragmentBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = MainFragmentBinding.inflate(layoutInflater, container, false)
 
 
         binding.change.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, CurrenciesFragment.newInstance())?.commitNow()
+            fragmentManager?.beginTransaction()
+                ?.replace(R.id.list_of_currencies, CurrenciesFragment(viewModel))?.commitNow()
         }
 
         binding.history.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, HistoryFragment.newInstance())?.commitNow()
+            fragmentManager?.beginTransaction()
+                ?.replace(R.id.list_of_currencies, HistoryFragment(viewModel))?.commitNow()
         }
 
         binding.analytics.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, AnalyticsFragment.newInstance())?.commitNow()
+            fragmentManager?.beginTransaction()
+                ?.replace(R.id.list_of_currencies, AnalyticsFragment(viewModel))?.commitNow()
         }
 
-        binding.filter.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, FilterFragment.newInstance())?.commitNow()
-        }
         return binding.root
     }
-
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-//        // TODO: Use the ViewModel
-//    }
-
 }

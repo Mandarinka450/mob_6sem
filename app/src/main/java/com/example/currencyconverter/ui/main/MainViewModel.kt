@@ -1,20 +1,45 @@
 package com.example.currencyconverter.ui.main
 
 import android.app.Application
-import androidx.lifecycle.LiveData
+import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.currencyconverter.data.CurrencyRepository
 import com.example.currencyconverter.data.CurrencyResponse
-import com.example.currencyconverter.database.CurrenciesSell
-import com.example.currencyconverter.database.CurrenciesSellRepository
-import kotlinx.coroutines.launch
-import retrofit2.Response
 import java.util.*
 
 
-class MainViewModel(private val repository: CurrenciesSellRepository, application: Application) : ViewModel() {
-//    val data = MutableLiveData<CurrencyResponse>()
+class MainViewModel(application: Application):ViewModel(){
+    var oldTime = 0
+    var prefs: SharedPreferences? = null
+    var sharedEditor: SharedPreferences.Editor? = null
+
+    fun isFirstRun(): Boolean? {
+        if (prefs?.getBoolean("first", true) == true) {
+            prefs!!.edit().putBoolean("first", false).commit();
+            return true
+        }else {
+            return false
+        }
+    }
+
+    val data = MutableLiveData<CurrencyResponse>()
+
+
+    suspend fun changeValues() {
+        if (isFirstRun() == true){
+//            firstRun()
+        }
+
+
+        var time = System.currentTimeMillis().toInt()
+        if ((time - oldTime)>300000){
+            val rates = CurrencyHolder.getCurr().toList()
+            for (i in rates){
+                updateCost(i.first, i.second)
+            }
+            oldTime = time
+        }
+    }
+
 
 }

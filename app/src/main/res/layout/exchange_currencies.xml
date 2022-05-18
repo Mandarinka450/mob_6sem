@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@id/title"
         android:layout_marginTop="@dimen/margin2"
         android:layout_marginLeft="@dimen/margin5"
-        android:text="@string/zaglushka"
+        android:text=""
         android:textSize="@dimen/text_size">
     </TextView>
 
@@ -61,16 +61,27 @@
         android:textSize="@dimen/text_size"
         android:layout_marginLeft="@dimen/margin4">
     </TextView>
-    <TextView
+    <EditText
         android:id="@+id/value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/title_two_currency"
         app:layout_constraintTop_toBottomOf="@id/title"
-        android:layout_margin="@dimen/margin2"
+        android:layout_marginLeft="@dimen/margin2"
+        android:layout_marginTop="@dimen/margin1"
         android:text="курс"
         android:textSize="@dimen/text_size">
-    </TextView>
+    </EditText>
+
+    <Button
+        android:id="@+id/chan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/value"
+        android:text="Change">
+
+    </Button>
 
     <Button
         android:layout_width="match_parent"

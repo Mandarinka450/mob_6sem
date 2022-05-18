@@ -27,19 +27,6 @@
             android:layout_marginTop="@dimen/margin_toolbar">
 
         </TextView>
-
-        <ImageButton
-            android:id="@+id/filter"
-            android:layout_width="@dimen/margin_top"
-            android:layout_height="@dimen/margin_top"
-            android:src="@drawable/edit"
-            android:layout_marginLeft="@dimen/margin_icon"
-            app:layout_constraintEnd_toEndOf="@id/toolbar"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginRight="@dimen/margin2"
-            android:layout_marginTop="@dimen/margin_toolbar">
-
-        </ImageButton>
     </LinearLayout>
 
     <Button

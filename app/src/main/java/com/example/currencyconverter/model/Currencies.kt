@@ -1,10 +1,10 @@
 package com.example.currencyconverter.model
 
-class Currencies(
-    val timestamp: Long,
-    val base: String,
-    val rates: List<Currency>
-)
+//class Currencies(
+//    val timestamp: Long,
+//    val base: String,
+//    val rates: List<Currency>
+//)
 
 data class Currency(
     val id: Int,

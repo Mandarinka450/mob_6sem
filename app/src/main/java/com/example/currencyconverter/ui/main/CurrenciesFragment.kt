@@ -16,28 +16,23 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class CurrenciesFragment : Fragment() {
-    companion object {
-        fun newInstance() = CurrenciesFragment()
-    }
-
+class CurrenciesFragment(private var viewModel: MainViewModel) : Fragment() {
     lateinit var binding: CurrenciesFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = CurrenciesFragmentBinding.inflate(layoutInflater,container,false)
 
-        var data = CurrencyResponse(success = false, timestamp = 111111111, base = "NON", date="2222222", rates=mapOf("non" to 1.0) )
+
         binding.recyclerCurrencies.layoutManager = LinearLayoutManager(activity)
-//        val currencyAdapter = CurrencyAdapter(::onClickCard)
 
         fun Data() = lifecycleScope.launch(Dispatchers.Main) {
             val rates = async(Dispatchers.IO) {
                 repository.getRemoteData()
             }
 
-            data = rates.await()
+            var data = rates.await()
             if(data.success) {
-                binding.recyclerCurrencies.adapter = CurrencyAdapter(data.rates)
+                binding.recyclerCurrencies.adapter = CurrencyAdapter(::onClickCard, data.rates)
             }
         }
         Data()
@@ -46,7 +41,7 @@ class CurrenciesFragment : Fragment() {
     }
 
     private fun onClickCard(title: String, value: Double): Unit{
-        fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, ExchangeCurrency.newInstance())?.commitNow()
+        fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, ExchangeCurrency(title, value))?.commitNow()
     }
 
 }

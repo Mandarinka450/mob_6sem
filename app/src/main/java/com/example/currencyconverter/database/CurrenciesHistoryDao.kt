@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.Flow
 
 
 @Dao
-interface CurrenciesDao {
+interface CurrenciesHistoryDao {
 
-    @Query("SELECT * FROM `CurrenciesSell`")
-    fun getAllCurrenciesSell(): Flow<MutableList<CurrenciesSell>>
+    @Query("SELECT * FROM CurrenciesHistory")
+    fun getAllCurrenciesHistory(): Flow<MutableList<CurrenciesHistory>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNode(values: CurrenciesSell)
+    suspend fun insertCurrenciesHistory(currenciesHistory: CurrenciesHistory)
 
 }

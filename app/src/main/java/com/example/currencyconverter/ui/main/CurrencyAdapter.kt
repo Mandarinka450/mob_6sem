@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.currencyconverter.databinding.CurrencyItemListBinding
 
-class CurrencyAdapter(private val data: Map<String,Double>): RecyclerView.Adapter<CurrencyAdapter.ViewHolder>() {
+class CurrencyAdapter(private val onClickCard: (String, Double) -> Unit, private val data: Map<String,Double>): RecyclerView.Adapter<CurrencyAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyAdapter.ViewHolder {
         val binding = CurrencyItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
@@ -25,6 +25,9 @@ class CurrencyAdapter(private val data: Map<String,Double>): RecyclerView.Adapte
     inner class ViewHolder internal constructor(private val binding: CurrencyItemListBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(rate: Pair<String, Double>) = binding.run {
             binding.textCurrency.text = rate.first
+            binding.cardItem.setOnClickListener{
+                onClickCard(rate.first, rate.second)
+            }
         }
     }
 

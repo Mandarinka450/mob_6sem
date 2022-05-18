@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class CurrenciesSell(
-    @PrimaryKey(autoGenerate = true) @NonNull
-    val id: Int,
-    var value: String,
+data class CurrenciesAll(
+    @PrimaryKey
+    @NonNull
+    var name: String,
     val cost: Double,
-    val finalCost: Double,
-    val date: String
+    var like: Boolean,
 ) {
+
 }

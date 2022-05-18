@@ -7,11 +7,11 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 
-@Database(entities = [CurrenciesSell::class], version = 1)
+@Database(entities = [CurrenciesHistory::class], version = 1)
 @TypeConverters(Convertors::class)
 abstract class CurrenciesSellDatabase: RoomDatabase() {
 
-    abstract fun CurrenciesDao(): CurrenciesDao
+    abstract fun CurrenciesDao(): CurrenciesHistoryDao
 
     companion object {
         @Volatile

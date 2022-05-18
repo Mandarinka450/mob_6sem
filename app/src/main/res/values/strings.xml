@@ -17,5 +17,6 @@
     <string name="first_date">Дата начала и конца</string>
     <string name="button_title">Применить</string>
     <string name="all">Выбрать все</string>
+    <string name="filter">Фильтры</string>
 
 </resources>

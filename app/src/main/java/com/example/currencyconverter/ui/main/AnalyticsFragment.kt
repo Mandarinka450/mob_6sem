@@ -9,11 +9,7 @@ import com.example.currencyconverter.databinding.AnaliticsBinding
 import com.example.currencyconverter.databinding.ExchangeCurrenciesBinding
 import com.example.currencyconverter.databinding.HistoryOfCurrenciesBinding
 
-class AnalyticsFragment : Fragment() {
-    companion object {
-        fun newInstance() = AnalyticsFragment()
-    }
-
+class AnalyticsFragment(private var viewModel: MainViewModel) : Fragment() {
     lateinit var binding: AnaliticsBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
