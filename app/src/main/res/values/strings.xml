@@ -10,7 +10,7 @@
     <string name="two_week">2 недели</string>
     <string name="mounth">Месяц</string>
     <string name="title1">История операций</string>
-    <string name="value">Кол-во</string>
+    <string name="value"></string>
     <string name="date">Дата</string>
     <string name="exchange">Обменять</string>
     <string name="title2">Обмен Валют</string>

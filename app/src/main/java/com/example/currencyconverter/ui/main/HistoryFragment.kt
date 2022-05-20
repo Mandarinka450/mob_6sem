@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.currencyconverter.R
 import com.example.currencyconverter.databinding.HistoryOfCurrenciesBinding
 
 class HistoryFragment(private var viewModel: MainViewModel) : Fragment() {
-
-
-
     lateinit var binding: HistoryOfCurrenciesBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -20,7 +18,16 @@ class HistoryFragment(private var viewModel: MainViewModel) : Fragment() {
         binding.filter.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, FilterFragment.newInstance())?.commitNow()
         }
+
+        setupRecycleView()
         return binding.root
+
+    }
+
+    fun setupRecycleView() {
+        binding.historyRec.layoutManager = LinearLayoutManager(activity)
+        viewModel.getAllHistoryCurr.observe(viewLifecycleOwner) { values ->
+            binding.historyRec.adapter = HistoryAdapter(values) }
 
     }
 

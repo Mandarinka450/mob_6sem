@@ -7,23 +7,25 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 
-@Database(entities = [CurrenciesHistory::class], version = 1)
+@Database(entities = [CurrenciesHistory::class, CurrenciesAll::class], version = 4)
 @TypeConverters(Convertors::class)
-abstract class CurrenciesSellDatabase: RoomDatabase() {
+abstract class CurrenciesDatabase: RoomDatabase() {
 
-    abstract fun CurrenciesDao(): CurrenciesHistoryDao
+    abstract fun CurrenciesHistoryDao(): CurrenciesHistoryDao
+    abstract fun CurrenciesAllDao(): CurrenciesAllDao
 
     companion object {
         @Volatile
-        private var db: CurrenciesSellDatabase? = null
+        private var db: CurrenciesDatabase? = null
 
-        fun getDatabase(context: Context): CurrenciesSellDatabase {
+        fun getDatabase(context: Context): CurrenciesDatabase {
             val tempInstance = db
             if(tempInstance != null){ return tempInstance }
             synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    CurrenciesSellDatabase::class.java, "currencies_database")
+                    CurrenciesDatabase::class.java, "currencies_database")
+                    .fallbackToDestructiveMigration()
                     .build()
                 db = instance
                 return instance

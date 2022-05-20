@@ -3,14 +3,9 @@ package com.example.currencyconverter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.example.currencyconverter.data.*
-import com.example.currencyconverter.databinding.MainActivityBinding
 import com.example.currencyconverter.ui.main.MainFragment
 import com.example.currencyconverter.ui.main.MainViewModel
 import com.example.currencyconverter.ui.main.ModelFactory
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 
@@ -27,10 +22,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, mainFragment)
                 .commitNow()
-        }
-
-        GlobalScope.launch(Dispatchers.Default) {
-            DependencyInjection.repository.getRemoteData()
         }
 
     }

@@ -11,37 +11,39 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.currencyconverter.R
 import com.example.currencyconverter.data.CurrencyResponse
 import com.example.currencyconverter.data.DependencyInjection.repository
+import com.example.currencyconverter.database.CurrenciesAll
 import com.example.currencyconverter.databinding.CurrenciesFragmentBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class CurrenciesFragment(private var viewModel: MainViewModel) : Fragment() {
     lateinit var binding: CurrenciesFragmentBinding
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = CurrenciesFragmentBinding.inflate(layoutInflater,container,false)
 
-
-        binding.recyclerCurrencies.layoutManager = LinearLayoutManager(activity)
-
-        fun Data() = lifecycleScope.launch(Dispatchers.Main) {
-            val rates = async(Dispatchers.IO) {
-                repository.getRemoteData()
-            }
-
-            var data = rates.await()
-            if(data.success) {
-                binding.recyclerCurrencies.adapter = CurrencyAdapter(::onClickCard, data.rates)
+        fun main() = runBlocking {
+            launch {
+                setupRecycleView()
             }
         }
-        Data()
+        main()
         return binding.root
 
     }
+    suspend fun setupRecycleView() {
+        binding.recyclerCurrencies.layoutManager = LinearLayoutManager(activity)
+        viewModel.changeValues()
+        viewModel.getAllCurr.observe(viewLifecycleOwner) { values ->
+            binding.recyclerCurrencies.adapter = CurrencyAdapter(values, ::showEchangeCurr) }
 
-    private fun onClickCard(title: String, value: Double): Unit{
-        fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, ExchangeCurrency(title, value))?.commitNow()
     }
 
+    private  fun showEchangeCurr(name: String, cost: Double): Unit{
+        fragmentManager?.beginTransaction()?.replace(R.id.container, ExchangeCurrency(viewModel, name, cost), ExchangeCurrency::class.java.simpleName)
+            ?.commit()
+    }
 }

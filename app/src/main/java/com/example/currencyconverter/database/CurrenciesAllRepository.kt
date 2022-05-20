@@ -7,13 +7,18 @@ class CurrenciesAllRepository(private val currenciesAllDao: CurrenciesAllDao) {
         currenciesAllDao.insertCurrenciesAll(currenciesAll)
     }
 
-    suspend fun updateAllCurr(currenciesAll: CurrenciesAll){
-        currenciesAllDao.updateCurrenciesAll(currenciesAll)
+//    suspend fun updateAllCurr(currenciesAll: CurrenciesAll){
+//        currenciesAllDao.updateCurrenciesAll(currenciesAll)
+//    }
+
+    suspend fun updateAllCurr(name: String, like: Boolean){
+        currenciesAllDao.updateCurrenciesAll(name, like)
     }
 
     suspend fun updateAllCostCurr(name: String, cost: Double){
         currenciesAllDao.updateCostCurr(name, cost)
     }
+
 
 
 }

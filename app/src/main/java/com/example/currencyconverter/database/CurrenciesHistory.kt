@@ -8,9 +8,8 @@ import androidx.room.PrimaryKey
 data class CurrenciesHistory(
     @PrimaryKey(autoGenerate = true) @NonNull
     val id: Int,
-    var value: String,
+    var name: String,
     val cost: Double,
-    val finalCost: Double,
-    val date: String
+    val date: Long
 ) {
 }

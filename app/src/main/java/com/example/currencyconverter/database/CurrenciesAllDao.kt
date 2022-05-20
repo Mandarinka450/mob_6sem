@@ -11,11 +11,14 @@ interface CurrenciesAllDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCurrenciesAll(currenciesAll: CurrenciesAll)
 
-    @Update
-    suspend fun updateCurrenciesAll(currenciesAll: CurrenciesAll)
+//    @Update
+//    suspend fun updateCurrenciesAll(currenciesAll: CurrenciesAll)
 
-    @Query("UPDATE `CurrenciesAll` SET 'cost'=:cost WHERE 'value'=:name")
-    fun updateCostCurr(name: String, cost: Double)
+    @Query("UPDATE `CurrenciesAll` SET 'like'=:like WHERE 'name'=:name")
+    suspend fun updateCurrenciesAll(name: String, like: Boolean)
+
+    @Query("UPDATE `CurrenciesAll` SET 'cost'=:cost WHERE 'name'=:name")
+    suspend fun updateCostCurr(name: String, cost: Double)
 
 
 }

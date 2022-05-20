@@ -2,7 +2,9 @@ package com.example.currencyconverter.ui.main
 
 import com.example.currencyconverter.data.DependencyInjection
 
-class CurrencyHolder {
+
+
+object CurrencyHolder {
 
     suspend fun getCurr(): Map<String,Double> {
         val cur = DependencyInjection.repository.getRemoteData()

@@ -3,30 +3,34 @@ package com.example.currencyconverter.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.currencyconverter.database.CurrenciesAll
 import com.example.currencyconverter.databinding.CurrencyItemListBinding
 
-class CurrencyAdapter(private val onClickCard: (String, Double) -> Unit, private val data: Map<String,Double>): RecyclerView.Adapter<CurrencyAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyAdapter.ViewHolder {
+class CurrencyAdapter(private val datacurr : MutableList<CurrenciesAll>,
+                      private val showExchangeCurr: (String, Double)->Unit) : RecyclerView.Adapter<CurrencyAdapter.CurrencyHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyHolder {
         val binding = CurrencyItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+        return CurrencyHolder(binding, showExchangeCurr)
+    }
+
+    override fun onBindViewHolder(holder: CurrencyHolder, position: Int) {
+        val curr: MutableList<CurrenciesAll> = datacurr
+        val currency = curr[position]
+
+        holder.bind(currency)
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return datacurr.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val array: Array<Pair<String, Double>> = data.toList().toTypedArray()
-        val rate = array[position]
-        holder.bind(rate)
+    inner class CurrencyHolder internal constructor(private val binding: CurrencyItemListBinding,
+                                                    private val showExchangeCurr: (String, Double) -> Unit): RecyclerView.ViewHolder(binding.root) {
+        fun bind(currency: CurrenciesAll) = binding.run {
+            binding.textCurrency.text = currency.name
 
-    }
-
-    inner class ViewHolder internal constructor(private val binding: CurrencyItemListBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(rate: Pair<String, Double>) = binding.run {
-            binding.textCurrency.text = rate.first
-            binding.cardItem.setOnClickListener{
-                onClickCard(rate.first, rate.second)
+            binding.textCurrency.setOnClickListener {
+                showExchangeCurr(currency.name, currency.cost)
             }
         }
     }
