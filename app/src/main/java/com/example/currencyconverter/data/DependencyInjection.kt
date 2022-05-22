@@ -1,5 +1,7 @@
 package com.example.currencyconverter.data
 
+import android.app.Application
+import com.example.currencyconverter.database.CurrenciesAllRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,6 +21,7 @@ object DependencyInjection {
         .build()
 
     private val service = retrofit.create(CurrencyApi::class.java)
+
 
     private val remoteDataSource = RemoteDataSource(service)
     private val localDataSource = LocalDataSource()

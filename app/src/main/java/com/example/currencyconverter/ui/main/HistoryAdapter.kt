@@ -27,7 +27,7 @@ class HistoryAdapter(private val datacurr : MutableList<CurrenciesHistory>): Rec
         fun bind(history: CurrenciesHistory) = binding.run {
             binding.curr.text = history.name
             binding.cost.text = history.cost.toString()
-            binding.date.text = java.text.SimpleDateFormat("yyyy-MM-dd").format(history.date)
+            binding.date.text = java.text.SimpleDateFormat("dd MMMM").format(history.date)
         }
     }
 }

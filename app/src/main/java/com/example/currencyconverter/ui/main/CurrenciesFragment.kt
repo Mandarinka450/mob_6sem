@@ -43,7 +43,7 @@ class CurrenciesFragment(private var viewModel: MainViewModel) : Fragment() {
     }
 
     private  fun showEchangeCurr(name: String, cost: Double): Unit{
-        fragmentManager?.beginTransaction()?.replace(R.id.container, ExchangeCurrency(viewModel, name, cost), ExchangeCurrency::class.java.simpleName)
+        fragmentManager?.beginTransaction()?.replace(R.id.list_of_currencies, ExchangeCurrency(viewModel, name, cost), ExchangeCurrency::class.java.simpleName)
             ?.commit()
     }
 }

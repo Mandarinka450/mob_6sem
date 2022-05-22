@@ -49,6 +49,7 @@ class ExchangeCurrency(private var viewModel: MainViewModel,
             }
         })
 
+
         binding.changeCurr.setOnClickListener{
             val id = System.currentTimeMillis().toInt()
             val values = CurrenciesHistory(id, name, cost, System.currentTimeMillis())
